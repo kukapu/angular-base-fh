@@ -1,0 +1,12 @@
+<h1>DRAGON BALL GTO</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <dbz-list [characterList]="characters" (onDelete)="onDeleteCharacter($event)"></dbz-list>
+  </div>
+
+  <div class="col">
+    <dbz-form (onNewCharacter)="onNewCharacter($event)"></dbz-form>
+  </div>
+</div>
