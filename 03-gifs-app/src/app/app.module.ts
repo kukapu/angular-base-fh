@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     GifsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
