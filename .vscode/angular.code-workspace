@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "angular-base-fh",
+			"path": ".."
+		}
+	],
+  "settings": {
+    "angular-schematics.schematicsDefaultOptions": {
+      "angular-*": {
+        "externalTemplate": true,
+        "inlineStyle": true
+      }
+    }
+  }
+}

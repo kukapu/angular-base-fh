@@ -12,6 +12,13 @@ export class CountriesService {
     private http: HttpClient
   ) { }
 
+  private _getCountriesRequest( url: string ): Observable<Country[]> {
+    return this.http.get<Country[]>(url)
+      .pipe(
+        catchError( error => of([]) )
+      );
+  }
+
   searchCountryByAlphaCode( code: string ): Observable<Country | null> {
 
     return this.http.get<Country[]>(`${this.baseUrl}/alpha/${code}`)
@@ -24,33 +31,39 @@ export class CountriesService {
 
   searchCapital( term: string ): Observable<Country[]> {
 
-    return this.http.get<Country[]>(`${this.baseUrl}/capital/${term}`)
-      .pipe(
-        // tap( countries => console.log('paso por el tap 1', countries) ),
-        // map( countries => [] ),
-        // tap( countries => console.log('paso por el tap 2', countries) ),
-        catchError( error => {
-          // console.log('Error:', error);
-          return of([]); // Lo que retorna si hay un error
-        }),
-        // catchError( () => of([]) )
-      );
+    const url = `${this.baseUrl}/capital/${term}`;
+    // return this.http.get<Country[]>(url)
+    //   .pipe(
+    //     // tap( countries => console.log('paso por el tap 1', countries) ),
+    //     // map( countries => [] ),
+    //     // tap( countries => console.log('paso por el tap 2', countries) ),
+    //     catchError( error => {
+    //       // console.log('Error:', error);
+    //       return of([]); // Lo que retorna si hay un error
+    //     }),
+    //     // catchError( () => of([]) )
+    //   );
 
+    return this._getCountriesRequest( url );
   }
 
   searchCountry( term: string ): Observable<Country[]> {
 
-    return this.http.get<Country[]>(`${this.baseUrl}/name/${term}`)
-      .pipe(
-        catchError( error => of([]) )
-      );
+    const url = `${this.baseUrl}/name/${term}`;
+    // return this.http.get<Country[]>(url)
+    //   .pipe(
+    //     catchError( error => of([]) )
+    //   );
+    return this._getCountriesRequest( url );
   }
 
   searchRegion( term: string ): Observable<Country[]> {
 
-      return this.http.get<Country[]>(`${this.baseUrl}/region/${term}`)
-        .pipe(
-          catchError( error => of([]) )
-        );
+    const url = `${this.baseUrl}/region/${term}`;
+    // return this.http.get<Country[]>(url)
+    //   .pipe(
+    //     catchError( error => of([]) )
+    //   );
+    return this._getCountriesRequest( url );
   }
 }
