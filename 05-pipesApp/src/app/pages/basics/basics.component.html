@@ -1,0 +1,50 @@
+<section>
+  <div>
+    <h4>uppercase</h4>
+    <p>{{ nameLower | uppercase }}</p>
+  </div>
+  <div>
+    <h4>lowercase</h4>
+    <p>{{ nameUpper | lowercase }}</p>
+  </div>
+  <div>
+    <h4>titlecase</h4>
+    <p>{{ nameComplete | titlecase }}</p>
+  </div>
+  <div>
+    <h4>customDate</h4>
+    <p>Fecha - </p>
+    <p>Fecha | fate - </p>
+    <p>Fecha | short - </p>
+    <p>Fecha | long - </p>
+    <p>Fecha | MMMM - </p>
+    <p>Fecha | MMMM dd, yyyy - </p>
+
+    <hr/>
+
+    <p>Fecha | date:'long':'GMT-6' - </p>
+    <p>Fecha | date:'long':'GMT-4' - </p>
+    <p>Fecha | date:'long':'':'es-ES' - </p>
+    <p>Fecha | date:'long':'':'en-US' - </p>
+    <p>Fecha | date:'long':'':'fr-CA' - </p>
+
+  </div>
+  <div>
+    <h4>customDate</h4>
+    <p>{{ customDate }}</p>
+    <p>{{ customDate | date }}</p>
+    <p>{{ customDate | date:'short' }}</p>
+    <p>{{ customDate | date:'long' }}</p>
+    <p>{{ customDate | date:'MMMM' }}</p>
+    <p>{{ customDate | date:'MMMM dd, yyyy' }}</p>
+
+    <hr/>
+
+    <p>{{ customDate | date:'long':'GMT-6' }}</p>
+    <p>{{ customDate | date:'long':'GMT-4' }}</p>
+    <p>{{ customDate | date:'long':'':'es-AR' }}</p>
+    <p>{{ customDate | date:'long':'':'en-US' }}</p>
+    <p>{{ customDate | date:'long':'':'fr-CA' }}</p>
+  </div>
+</section>
+

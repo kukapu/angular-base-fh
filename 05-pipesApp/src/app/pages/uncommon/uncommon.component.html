@@ -1,0 +1,53 @@
+<section>
+  <div>
+    <h4>i18nSelect Pipe</h4>
+    <p>
+      Saludos {{ name }} es un placer que sea el {{ gender | i18nSelect:invatitionMap }}!
+    </p>
+
+    <button (click)="changeClient()">Cambiar Persona</button>
+  </div>
+
+  <div>
+    <h4>i18Plural Pipe</h4>
+    <p>
+      {{ clientes.length | i18nPlural:clientsMap }}
+    </p>
+    <button (click)="deleteClient()">Borrar cliente</button>
+  </div>
+
+  <div>
+    <h4>Slice Pipe</h4>
+    <span>ORIGINAL</span>
+    <p>{{ clientes }}</p>
+
+    <span>SLICE 0:2</span>
+    <p>{{ clientes | slice:0:2}}</p>
+    <span>SLICE 2:4</span>
+    <p>{{ clientes | slice:2:4}}</p>
+    <span>SLICE 1:5</span>
+    <p>{{ clientes | slice:1:5}}</p>
+  </div>
+
+  <div>
+    <h4>JSON Pipe</h4>
+    <pre>{{ person | json }}</pre>
+  </div>
+
+  <div>
+    <h4>KeyValue Pipe</h4>
+    <ul *ngFor="let item of person | keyvalue">
+      <b>{{ item.key | titlecase }}:</b> {{item.value}}
+    </ul>
+  </div>
+
+  <div>
+    <h4>Async Pipe</h4>
+    <p *ngIf="!(myObservableTimer | async)">Resolviendo Observable</p>
+    <p>{{ myObservableTimer | async }}</p>
+    <p *ngIf="!(promiseValue | async)">Resolviendo Promesa</p>
+    <p>{{ promiseValue | async }}</p>
+    <!-- <p>{{ myObservableTimer | json }}</p> NO SE VE PORQUE ES OTRA INSTANCIA -->
+  </div>
+</section>
+
