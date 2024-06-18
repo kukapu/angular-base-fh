@@ -1,0 +1,35 @@
+<section>
+  <div>
+    <h4>ToggleCase </h4>
+    <p>{{ 'onizuka' | toggleCase:isUpperCase }}</p>
+    <button (click)="toggle()">
+      Toggle
+    </button>
+    <button (click)="sortedBy('name')">
+      By Name
+    </button>
+    <button (click)="sortedBy('canFly')">
+      By Fly
+    </button>
+    <button (click)="sortedBy('color')">
+      By Color
+    </button>
+  </div>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Fly</th>
+      <th>Color</th>
+    </tr>
+    <ng-container select="selector" *ngFor="let hero of heroes | sortBy:sort">
+      <tr>
+        <td>{{ hero.name }}</td>
+        <td>{{ hero.canFly | canFly | titlecase }}</td>
+        <td>{{ hero.color }}</td>
+      </tr>
+    </ng-container>
+
+  </table>
+</section>
+
